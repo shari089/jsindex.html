@@ -10,7 +10,7 @@ var words = [
 
 function setupGame() {
     chosenWord = words[Math.floor(Math.random() * 50)]; 
-    console.log("Chosen Word: ", chosenWord);
+    console.log("Chosen Word: " + chosenWord);
     alert(chosenWord); // tangal lng to
 }
 
