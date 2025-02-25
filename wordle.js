@@ -9,13 +9,10 @@ var words = [
 ];
 
 function setupGame() {
-    chosenWord = words[Math.floor(Math.random() * words.length)];
+    chosenWord = words[Math.floor(Math.random() * 50)]; 
     console.log("Chosen Word: " + chosenWord);
+    alert(chosenWord);
 }
-
-window.onload = function() {
-    setupGame();
-};
 
 function checkWord() {
     if (health <= 0) return;
