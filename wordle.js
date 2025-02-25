@@ -15,9 +15,9 @@ function setupGame() {
 
 function checkWord() {
     if (health <= 0) return;
-    
+
+    let rowIndex = 5 - health;  
     health--; 
-    let rowIndex = 5 - health - 1; 
 
     let answer = prompt("Enter a word: ").toUpperCase();
 
@@ -26,33 +26,52 @@ function checkWord() {
         return;
     }
 
-    let boxes = [];
-    for (let i = 0; i < 5; i++) {
-        boxes.push(document.getElementById(`r-${rowIndex}-${i}`));
-        boxes[i].innerText = answer[i];
-    }
+    // Get each box manually (since loops aren't allowed)
+    let box0 = document.getElementById(`r-${rowIndex}-0`);
+    let box1 = document.getElementById(`r-${rowIndex}-1`);
+    let box2 = document.getElementById(`r-${rowIndex}-2`);
+    let box3 = document.getElementById(`r-${rowIndex}-3`);
+    let box4 = document.getElementById(`r-${rowIndex}-4`);
 
-    const animation_duration = 500;
+    // Fill in the boxes with the guessed word
+    box0.innerText = answer[0];
+    box1.innerText = answer[1];
+    box2.innerText = answer[2];
+    box3.innerText = answer[3];
+    box4.innerText = answer[4];
 
-    for (let i = 0; i < 5; i++) {
-        if (answer[i] === chosenWord[i]) {
-            boxes[i].style.backgroundColor = "#6AAA64"; 
-        } else if (chosenWord.includes(answer[i])) {
-            boxes[i].style.backgroundColor = "#C9B458"; 
-        } else {
-            boxes[i].style.backgroundColor = "#787C7E"; 
-        }
+    // Set colors based on correctness
+    setBoxColor(box0, answer[0], 0);
+    setBoxColor(box1, answer[1], 1);
+    setBoxColor(box2, answer[2], 2);
+    setBoxColor(box3, answer[3], 3);
+    setBoxColor(box4, answer[4], 4);
 
-        boxes.add('animated');
-        box.style.animationDelay = `${(i * animation_duration) / 2}ms`;
-    }
-
+    // Check if player won
     if (answer === chosenWord) {
         alert("Congrats! You guessed it correctly.");
         return;
     }
 
+    // Check if game over
     if (health === 0) {
         alert(`Nice try! The word was ${chosenWord}.\n\nReload the page to try again!`);
     }
+}
+
+// Helper function to set box colors based on correctness
+function setBoxColor(box, letter, index) {
+    const animation_duration = 500;
+    
+    if (letter === chosenWord[index]) {
+        box.style.backgroundColor = "#6AAA64";  // Green for correct position
+    } else if (chosenWord.includes(letter)) {
+        box.style.backgroundColor = "#C9B458";  // Yellow for wrong position
+    } else {
+        box.style.backgroundColor = "#787C7E";  // Gray for incorrect
+    }
+
+    // Add animation
+    box.classList.add('animated');
+    box.style.animationDelay = `${(index * animation_duration) / 2}ms`;
 }
