@@ -11,7 +11,7 @@ var words = [
 function setupGame() {
     chosenWord = words[Math.floor(Math.random() * 50)]; 
     console.log("Chosen Word: " + chosenWord);
-    alert(chosenWord);
+    alert(chosenWord); //tanggal lng to
 }
 
 function checkWord() {
@@ -27,14 +27,12 @@ function checkWord() {
         return;
     }
 
-    // Get each box manually (since loops aren't allowed)
     let box0 = document.getElementById(`r-${rowIndex}-0`);
     let box1 = document.getElementById(`r-${rowIndex}-1`);
     let box2 = document.getElementById(`r-${rowIndex}-2`);
     let box3 = document.getElementById(`r-${rowIndex}-3`);
     let box4 = document.getElementById(`r-${rowIndex}-4`);
 
-    // Fill in the boxes with the guessed word
     box0.innerText = answer[0];
     box1.innerText = answer[1];
     box2.innerText = answer[2];
@@ -45,13 +43,13 @@ function checkWord() {
 
     // Row 1
     if (answer[0] == chosenWord[0]) {
-        box0.style.backgroundColor = "#6AAA64"; // Green
+        box0.style.backgroundColor = "#6AAA64";
     } 
     else if (chosenWord.includes(answer[0])) {
-        box0.style.backgroundColor = "#C9B458"; // Yellow
+        box0.style.backgroundColor = "#C9B458"; 
     } 
     else {
-        box0.style.backgroundColor = "#787C7E"; // Gray
+        box0.style.backgroundColor = "#787C7E";
     }
     box0.classList.add('animated');
     box0.style.animationDelay = `${0 * animation_duration / 2}ms`;
@@ -108,13 +106,11 @@ function checkWord() {
     box4.classList.add('animated');
     box4.style.animationDelay = `${4 * animation_duration / 2}ms`;
 
-    // Check if player won
     if (answer === chosenWord) {
         alert("Congrats! You guessed it correctly.");
         return;
     }
 
-    // Check if game over
     if (health === 0) {
         alert(`Nice try! The word was ${chosenWord}.\n\nReload the page to try again!`);
     }
