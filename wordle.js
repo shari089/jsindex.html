@@ -62,13 +62,13 @@ function checkWord() {
 // Helper function to set box colors based on correctness
 function setBoxColor(box, letter, index) {
     const animation_duration = 500;
-    
+
     if (letter === chosenWord[index]) {
-        box.style.backgroundColor = "#6AAA64";  // Green for correct position
+        box.style.backgroundColor = "#6AAA64";  // Green (Correct letter, correct position)
     } else if (chosenWord.includes(letter)) {
-        box.style.backgroundColor = "#C9B458";  // Yellow for wrong position
+        box.style.backgroundColor = "#C9B458";  // Yellow (Correct letter, wrong position)
     } else {
-        box.style.backgroundColor = "#787C7E";  // Gray for incorrect
+        box.style.backgroundColor = "#787C7E";  // Gray (Wrong letter)
     }
 
     // Add animation
