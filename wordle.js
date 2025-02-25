@@ -16,8 +16,8 @@ function setupGame() {
 function checkWord() {
     if (health <= 0) return;
     
-    health--; // Decrement first
-    let rowIndex = 5 - health - 1; // Fix row index
+    health--; 
+    let rowIndex = 5 - health - 1; 
 
     let answer = prompt("Enter a word: ").toUpperCase();
 
@@ -32,14 +32,19 @@ function checkWord() {
         boxes[i].innerText = answer[i];
     }
 
+    const animation_duration = 500;
+
     for (let i = 0; i < 5; i++) {
         if (answer[i] === chosenWord[i]) {
-            boxes[i].style.backgroundColor = "#6AAA64"; // Green (correct position)
+            boxes[i].style.backgroundColor = "#6AAA64"; 
         } else if (chosenWord.includes(answer[i])) {
-            boxes[i].style.backgroundColor = "#C9B458"; // Yellow (wrong position)
+            boxes[i].style.backgroundColor = "#C9B458"; 
         } else {
-            boxes[i].style.backgroundColor = "#787C7E"; // Gray (not in word)
+            boxes[i].style.backgroundColor = "#787C7E"; 
         }
+
+        boxes.add('animated');
+        box.style.animationDelay = `${(i * animation_duration) / 2}ms`;
     }
 
     if (answer === chosenWord) {
