@@ -1,3 +1,22 @@
+var health = 5;
+var chosenWord = ""; 
+var words = [ 
+    "BLAZE", "BRAIN", "CLOUD", "DREAM", "EIGHT", "FLUTE", "GRASP", "HUMOR", "CRATE", "DANCE",
+    "KNOBS", "LATCH", "MOUNT", "NIGHT", "OCEAN", "PLUMB", "GUILT", "RANCH", "ROACH", "TANGO",
+    "URBAN", "VOTER", "WALTZ", "XENON", "YOUTH", "ZEBRA", "BRISK", "CHALK", "DEPTH", "EAGER",
+    "FANCY", "GLIDE", "LOVED", "INBOX", "TEARS", "KNEAD", "LUNCH", "MIRTH", "NOBLE", "HATED",
+    "PRISM", "QUAKE", "RUMOR", "SHINY", "THUMB", "ABUSE", "SHAME", "WOVEN", "FOUND", "YACHT"
+];
+
+function setupGame() {
+    chosenWord = words[Math.floor(Math.random() * words.length)];
+    console.log("Chosen Word: " + chosenWord);
+}
+
+window.onload = function() {
+    setupGame();
+};
+
 function checkWord() {
     if (health <= 0) return;
 
