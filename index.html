@@ -5,71 +5,53 @@
 	  <meta charset=”UTF-8”>
 	  <meta name=”viewpoint” content=”width=device-width, initial-scale = 0, user-scalable=no”> 
         <style>
-            div,h1,span,p {
-                font-family: Arial, Hervetica, sans-serif;
-           }
-
-            body {
-                display: flex;
-                flex-direction: column;
-            }
+		div,h1,span,p {
+			font-family: Arial, Hervetica, sans-serif;
+		}
 		
-			hr {
-				width: 500px;
-			}
+		body {
+			display: flex;
+			flex-direction: column;
+		}
 
-			h1 {
-				text-align: center;
-				font-size: 36px
-				font-weight: bold;
-				letter-spacing: 2px;
-            }
+		hr {
+			width: 500px;
+		}
+		
+		h1 {
+			text-align: center;
+			font-size: 36px
+			font-weight: bold;
+			letter-spacing: 2px;
+            	}
 
-            .box {
-				width: 345px;
-				Height: 70px;
-				Background-color: green;
-				Margin: 0 auto;
-				Display: flex;
-				Flex-wrap: wrap;
-            }
-
-            .box>div {
-				border: 2px solid lightgray;
-				width: 60px;
-				height: 60px;
-				margin: 2.5px;
-				color: black;
-				font-size: 36px;
-				Font-weight: bold;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-
-			.correct {
-				Background-color: #6AAA64;
-				Color: white;
-				Border-color: white;
-			}
-
-			.present {
-				Background-color: #C9B458;
-				Color: white;
-				Border-color: white;
-			}
-			
-			.absent {
-				background-color: #787C7E;
-				Color: white;
-				Border-color: white;
-			}
+		.box {
+			width: 345px;
+			Height: 70px;
+			Background-color: green;
+			Margin: 0 auto;
+			Display: flex;
+			Flex-wrap: wrap;
+		}
+		
+		.box>div {
+			border: 2px solid lightgray;
+			width: 60px;
+			height: 60px;
+			margin: 2.5px;
+			color: black;
+			font-size: 36px;
+			Font-weight: bold;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
         </style>
         <script src="wordle.js"></script>
     </head>
     <body onload="setupGame()">
         <h1>Wordle</h1>
-		<hr>
+	<hr>
         
         <div id="r-0" class="r-0 box">
             <div id="r-0-0"></div>
