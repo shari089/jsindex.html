@@ -16,15 +16,15 @@ function setupGame() {
 function checkWord() {
     if (health <= 0) return;
     
-    health--; 
-    let rowIndex = 5 - health; 
-
     let answer = prompt("Enter a word: ").toUpperCase();
 
     if (answer.length !== 5) {
         alert("Invalid input. Please enter a 5-letter word.");
         return;
     }
+
+    health--;
+    let rowIndex = 5 - health; 
 
     let box0 = document.getElementById(`r-${rowIndex}-0`);
     let box1 = document.getElementById(`r-${rowIndex}-1`);
