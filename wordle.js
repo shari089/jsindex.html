@@ -16,9 +16,6 @@ function setupGame() {
 function checkWord() {
     if (health <= 0) return;
 
-    health--;
-    let rowIndex = 5 - health; 
-
     let answer = prompt("Enter a word: ").toUpperCase();
 
     if (answer.length !== 5) {
@@ -106,10 +103,12 @@ function checkWord() {
     box4.style.animationDelay = `${4 * animation_duration / 2}ms`;
 
     if (answer == chosenWord) {
-        alert("Congrats! You guessed it correctly. \n\nReload the page to play again!");
+        alert("Congrats! You guessed it correctly.\n\nReload the page to play again!");
         return;
-    }    
-    if (health == 0) {
-        alert(`Nice try! The word was ${chosenWord}.\n\nReload the page to try again!`);
     }
-}
+
+    health--; 
+
+    if (health == 0) {
+        alert(Nice try! The word was ${chosenWord}.\n\nReload the page to try again!);
+    }
