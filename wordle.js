@@ -16,7 +16,7 @@ function setupGame() {
 function checkWord() {
     if (health <= 0) return;
     
-    let rowIndex = 5 - health; 
+    let rowIndex = 5 - health - 1; 
 
     let answer = prompt("Enter a word: ").toUpperCase();
 
