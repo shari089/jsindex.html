@@ -15,6 +15,8 @@ function setupGame() {
 
 function checkWord() {
     if (health <= 0) return;
+    
+    let rowIndex = 5 - health; 
 
     let answer = prompt("Enter a word: ").toUpperCase();
 
@@ -108,8 +110,7 @@ function checkWord() {
     }
 
     health--; 
-    let rowIndex = 5 - health; 
-
+    
     if (health == 0) {
         alert(Nice try! The word was ${chosenWord}.\n\nReload the page to try again!);
     }
