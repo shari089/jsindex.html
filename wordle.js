@@ -11,14 +11,12 @@ var words = [
 function setupGame() {
     chosenWord = words[Math.floor(Math.random() * 50)]; 
     console.log("Chosen Word: " + chosenWord);
-    alert(chosenWord); //tanggal lng to
 }
 
 function checkWord() {
     if (health <= 0) return;
 
-    let rowIndex = 5 - health;  
-    health--; 
+    let rowIndex = 5 - health; 
 
     let answer = prompt("Enter a word: ").toUpperCase();
 
@@ -106,12 +104,14 @@ function checkWord() {
     box4.classList.add('animated');
     box4.style.animationDelay = `${4 * animation_duration / 2}ms`;
 
-    if (answer === chosenWord) {
-        alert("Congrats! You guessed it correctly.");
+    if (answer == chosenWord) {
+        alert("Congrats! You guessed it correctly. \n\nReload the page to play again!");
         return;
     }
 
-    if (health === 0) {
+    health--;
+    
+    if (health == 0) {
         alert(`Nice try! The word was ${chosenWord}.\n\nReload the page to try again!`);
     }
 }
